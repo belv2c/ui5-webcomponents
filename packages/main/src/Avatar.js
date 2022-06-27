@@ -208,6 +208,35 @@ const metadata = {
 			propertyName: "image",
 			type: HTMLElement,
 		},
+		/**
+		 * Defines the optional <code>ui5-badge</code> that will be used for visual affordance.
+		 * Use <code>slot="badge"</code> together with the <code>avatar-badge</code> attribute for proper styling.
+		 * <br><br>
+		 * Example:
+		 * <br><br>
+		 * &lt;ui5-avatar><br>
+		 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;ui5-badge slot="badge" avatar-badge><br>
+		 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ui5-icon slot="icon" name="employee">&lt;/ui5-icon><br>
+		 * &nbsp;&nbsp;&nbsp;&nbsp&lt;/ui5-badge><br>
+		 * &lt;/ui5-avatar>
+		 * <br><br>
+		 * <ui5-avatar initials="AB" color-scheme="Accent1">
+		 * <ui5-badge slot="badge" avatar-badge>
+		 * <ui5-icon slot="icon" name="accelerated"></ui5-icon>
+		 * </ui5-badge>
+		 * </ui5-avatar>
+		 * <br><br>
+		 * <b>Note:</b> To achieve the target design, please use only <code>ui5-icon</code>
+		 * in the corresponding slot, without text nodes.
+		 *
+		 * @type {sap.ui.webcomponents.main.IBadge}
+		 * @slot
+		 * @public
+		 * @since 1.5.0
+		 */
+		badge: {
+			type: HTMLElement,
+		},
 	},
 	events: /** @lends sap.ui.webcomponents.main.Avatar.prototype */ {
 		/**
