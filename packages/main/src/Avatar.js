@@ -3,6 +3,9 @@ import litRender from "@ui5/webcomponents-base/dist/renderer/LitRenderer.js";
 import { getI18nBundle } from "@ui5/webcomponents-base/dist/i18nBundle.js";
 
 import { isEnter, isSpace } from "@ui5/webcomponents-base/dist/Keys.js";
+
+import { getFeature } from "@ui5/webcomponents-base/dist/FeaturesRegistry.js";
+
 // Template
 import AvatarTemplate from "./generated/templates/AvatarTemplate.lit.js";
 
@@ -73,6 +76,23 @@ const metadata = {
 		 * @public
 		 */
 		initials: {
+			type: String,
+		},
+
+		/**
+		 * Defines whether the component should show a badge, if such are present.
+		 * <br><br>
+		 * <b>Note:</b> You need to import the <code>BadgeEnablement</code> module
+		 * from <code>"@ui5/webcomponents/dist/features/BadgeEnablement.js"</code> to enable this functionality.
+		 * @type {boolean}
+		 * @defaultvalue false
+		 * @public
+		 */
+		showBadge: {
+			type: Boolean,
+		},
+
+		badgeIcon: {
 			type: String,
 		},
 
@@ -340,6 +360,24 @@ class Avatar extends UI5Element {
 
 	onBeforeRendering() {
 		this._onclick = this.interactive ? this._onClickHandler.bind(this) : undefined;
+
+		if (this.showBadge) {
+			this.enableBadge();
+		}
+	}
+
+	enableBadge() {
+		if (this.Badge) {
+			return;
+		}
+
+		const BadgeEnablement = getFeature("BadgeEnablement");
+
+		if (BadgeEnablement) {
+			this.Badge = new BadgeEnablement(this);
+		} else {
+			throw new Error(`You have to import the "@ui5/webcomponents/dist/features/BadgeEnablement.js" module to use a badge.`);
+		}
 	}
 
 	_onClickHandler(event) {

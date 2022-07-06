@@ -1,6 +1,7 @@
 :host(:not([hidden])) {
 	display: inline-block;
 	box-sizing: border-box;
+	position: relative;
 }
 
 /*The ui5_hovered class is set by FileUploader to indicate hover state of the control*/

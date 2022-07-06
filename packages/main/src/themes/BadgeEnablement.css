@@ -1,0 +1,43 @@
+
+:host {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 1.125rem;
+	height: 1.125rem;
+	background: var(--sapButton_Emphasized_Background);
+	border: var(--sapButton_Emphasized_Background);
+	border-radius: 1rem;
+	color: var(--sapContent_BadgeTextColor);
+	justify-content: center;
+	font-size: var(--sapFontSmallSize);
+}
+
+:host([_size="L"]) .ui5-avatar-badge,
+:host([size="L"]) .ui5-avatar-badge {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+:host([_size="XL"]) .ui5-avatar-badge,
+:host([size="XL"]) .ui5-avatar-badge {
+	width: 1.75rem;
+	height: 1.75rem;
+}
+
+:host([shape="Square"]) .ui5-avatar-badge {
+	bottom: -0.125rem;
+	right: -0.125rem;
+}
+
+:host([_size="L"][shape="Square"]) .ui5-avatar-badge,
+:host([size="L"][shape="Square"]) .ui5-avatar-badge {
+	bottom: -0.1875rem;
+	right: -0.1875rem;
+}
+
+:host([_size="XL"][shape="Square"]) .ui5-avatar-badge,
+:host([size="XL"][shape="Square"]) .ui5-avatar-badge {
+	bottom: -0.25rem;
+	right: -0.25rem;
+} 
